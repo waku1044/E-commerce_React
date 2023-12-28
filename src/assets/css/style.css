@@ -1,0 +1,50 @@
+:root{
+    --fondo_blanco:#fff;
+    --fondo_medio:#E5E5E5;
+    --fondo_oscuro:#EAF2FD;
+    --azul:#2A7AE4;
+    --titulos:#464646;
+    --placeholder:#A2A0AA;
+    --letras:'Raleway','sans-serif';
+}
+dialog{
+    background: rgb(53, 215, 226);
+    color: var(--titulos);
+    font-family: var(--letras);
+    border: none;
+    border-radius: 30px;
+    padding: 60px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--letras);
+}
+.star_btn , .consola_btn, .diversos_btn{
+    width: 100%;
+    max-width:150px;
+}
+.btn_agregar{
+    min-width: 94px;
+}
+section{
+    background: var(--fondo_oscuro);
+}
+input{
+    padding: 5px 10px;
+}
+.eye{
+    position: relative;
+    cursor: pointer;
+    bottom: 55px;
+    left: 20%;
+}
+::placeholder{
+    
+    color: var(--placeholder);
+}
+@media screen and (min-width: 900px) {
+    .eye{
+        left: 22%;
+    }
+}
