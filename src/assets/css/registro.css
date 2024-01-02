@@ -11,14 +11,14 @@ main{
     height: calc(100vh - 250px);
 }
 .eye{
-    position: relative;   
+       
     cursor: pointer;
-    top: 28px;
+    top: -42px;
     left: 30%;
-    
+    /* background: red; */
 }
 @media screen and (min-width: 900px) {
     .eye{
-        left: 35%;
+        left: 300px;
     }
 }

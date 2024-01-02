@@ -33,18 +33,18 @@ section{
 input{
     padding: 5px 10px;
 }
-.eye{
+.ojo{
     position: relative;
     cursor: pointer;
-    bottom: 55px;
-    left: 20%;
+    bottom: 27%;
+    left: 18%;
 }
 ::placeholder{
     
     color: var(--placeholder);
 }
 @media screen and (min-width: 900px) {
-    .eye{
+    .ojo{
         left: 22%;
     }
 }
