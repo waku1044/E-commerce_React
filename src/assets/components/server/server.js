@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 const loginUser =   async (usuario, password)=> {
     
     try {
-        const response = await fetch("https://back-ecommerce-olive.vercel.app/api/login", {
+        const response = await fetch("https://back-ecommerce-k92ol8eun-waku1044.vercel.app/api/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -20,7 +20,7 @@ const loginUser =   async (usuario, password)=> {
 
 }
 const registerUser = async (usuario, password) => {
-    const response = await fetch("https://back-ecommerce-olive.vercel.app/api/register", {
+    const response = await fetch("https://back-ecommerce-k92ol8eun-waku1044.vercel.app/api/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -49,7 +49,7 @@ const agregarProducto = async (producto) => {
     const {imagen, titulo,categoria, precio,descripcion} = producto
     const uuid = uuidv4()
     console.log(producto)    
-    const response = await fetch("https://back-ecommerce-olive.vercel.app/api/agregarproducto", {
+    const response = await fetch("https://back-ecommerce-k92ol8eun-waku1044.vercel.app/api/agregarproducto", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -61,13 +61,13 @@ const agregarProducto = async (producto) => {
     
 }
 const mostrarProductos = async () => {
-     const response = await fetch("https://back-ecommerce-olive.vercel.app/api/mostrarproductos");
+     const response = await fetch("https://back-ecommerce-k92ol8eun-waku1044.vercel.app/api/mostrarproductos");
     const data = await response.json();
     return data;    
 }
 
 const mostrarproducto = async(id) => {
-    const response = await fetch(`https://back-ecommerce-olive.vercel.app/api/mostrarproducto/${id}`)
+    const response = await fetch(`https://back-ecommerce-k92ol8eun-waku1044.vercel.app/api/mostrarproducto/${id}`)
     const data = await response.json();
     return data
 }
@@ -76,7 +76,7 @@ const editarproducto = async ({img,nombre,precio, descripcion, categoria, _id})=
     
     try {
         console.log('esto es lo que envia el front ',_id, img, nombre,precio, descripcion, categoria);
-        const response = await fetch(`https://back-ecommerce-olive.vercel.app/api/actualizarproducto/${_id}`, {
+        const response = await fetch(`https://back-ecommerce-k92ol8eun-waku1044.vercel.app/api/actualizarproducto/${_id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -96,7 +96,7 @@ const editarproducto = async ({img,nombre,precio, descripcion, categoria, _id})=
 }
 
 const eliminarproducto = (id) => {
-    return fetch(`https://back-ecommerce-olive.vercel.app/api/eliminarproducto/${id}`,{
+    return fetch(`https://back-ecommerce-k92ol8eun-waku1044.vercel.app/api/eliminarproducto/${id}`,{
         method: "DELETE",
     })
 }
