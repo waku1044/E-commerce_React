@@ -1,6 +1,10 @@
 import { useState } from "react";
 import eyeOpen from "../img/eyeOpen.svg";
 import eyeClosed from "../img/eyeClose.svg";
+// import { Link } from "react-router-dom";
+import useStore from "../../store/Store";
+import {server}   from "../../assets/components/server/server";
+
 
 
 
@@ -11,10 +15,17 @@ const dataInicial = {
     repeatpassword: "",
 }
 const FormularioRegister = () => {
+  const registrar = useStore((state)=>state.registrarUser);
+  // const usuario = useStore((state)=>state.usuario);
     
 const [eye, setEye] = useState(eyeClosed);
 const [togglePassword, setTogglePassword] = useState(false);
 const [state, setState] = useState(dataInicial);
+
+
+// useEffect(() => {
+//   console.log('Usuario en el useEffect:', usuario()); // Visualizar el usuario en la consola cuando cambie
+// }, [usuario]); 
     
     const changeData = (e) => {
         setState({
@@ -26,7 +37,26 @@ const [state, setState] = useState(dataInicial);
 
     const handleData = (e)=>{
         e.preventDefault();
+      if(state.usuario === "" || state.password === ""     || state.repeatpassword === ""){
+            alert("Todos los campos son obligatorios")
+        } 
+       else if(state.password === state.repeatpassword){
+         console.log(state)
+         alert("Registro exitoso")
+        setTimeout(()=>{
+          server.registerUser(state.usuario, state.password)
+        }, 1000);
+        // // localStorage.setItem("user", JSON.stringify(state));
+        // localStorage.setItem("user", state.usuario);
+        // localStorage.setItem("password", state.password);
+        // console.log(state)
+        registrar(state)
+        // window.location.href = "/"
         console.log(state)
+
+       }else{
+        alert("Las contraseñas no coinciden")
+       }
     }
     function toggle() {
     setEye(eye === eyeClosed ? eyeOpen : eyeClosed);
@@ -64,7 +94,7 @@ const [state, setState] = useState(dataInicial);
               onChange={changeData}
               
             />
-    
+            
             <button
               type="submit"
               className="inicio_btn btn btn-primary col-12 w-50 font-monospace"  

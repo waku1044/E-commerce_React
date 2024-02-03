@@ -1,12 +1,15 @@
 import FormularioRegister from "../components/FormularioRegister";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
+import  Footer  from "../components/Footer";
 import "../css/registro.css";
+
+
 // import '../css/style.css';
 
 
 const Register = () => {
-  
+ 
   return (
     <main className="container">
       <Header />
@@ -19,6 +22,7 @@ const Register = () => {
             </Link>
         </div>
       </div>
+        <Footer />
     </main>
   );
 };

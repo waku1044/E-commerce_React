@@ -4,16 +4,20 @@ import Formulario from "../components/Formulario";
 import QuienesSomos from "../components/QuienesSomos";   
 import { Link } from "react-router-dom";
 import "../css/style.css";
-
+// import useStore  from "../../store/Store";
 
 
 
 const Login = () => {
- 
+ localStorage.getItem("user")
+
+//  const user = useStore((state)=> state.usuario);
+
+//  console.log('Esto es en el padre Login', user)
   return (
     <>
       <Header />
-      <main className="container-fluid">
+      <main className="container-fluid ">
         <div className="inicioSesion row pt-0 mt-0">
           <div className="inicio_ingreso d-flex flex-column justify-content-center align-items-center py-2">
             <h2 className="inicio_titulo pb-4">Iniciar Sesión</h2>

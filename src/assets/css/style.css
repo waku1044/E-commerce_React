@@ -7,18 +7,17 @@
     --placeholder:#A2A0AA;
     --letras:'Raleway','sans-serif';
 }
-dialog{
-    background: rgb(53, 215, 226);
-    color: var(--titulos);
-    font-family: var(--letras);
-    border: none;
-    border-radius: 30px;
-    padding: 60px;
+
+.buscador{
+    background: #E5E5E5;
+}
+.fondo{
+    background: #ffe6e6;
 }
 *{
     margin: 0;
     padding: 0;
-    font-family: var(--letras);
+    /* font-family: var(--letras); */
 }
 .star_btn , .consola_btn, .diversos_btn{
     width: 100%;
