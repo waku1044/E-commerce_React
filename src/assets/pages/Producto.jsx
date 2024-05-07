@@ -34,7 +34,7 @@ const Producto = () => {
           <p className="card-text">{product.descripcion}.</p>
           <p className="card-text">
             <small className="text-body-secondary">
-              Last updated 3 mins ago
+              Actualizado hace 3 min
             </small>
           </p>
         </div>
