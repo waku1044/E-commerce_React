@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
 
-// mongodb+srv://walterg610:Wakute1044$@cluster0.a98vk4t.mongodb.net/e-commerce
 const loginUser =   async (usuario, password)=> {
     
     try {
