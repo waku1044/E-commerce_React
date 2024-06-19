@@ -2,6 +2,8 @@ import { useState } from "react";
 import eyeClosed from "../img/eyeClose.svg";
 import eyeOpen from "../img/eyeOpen.svg";
 // import useStore from "../../store/Store";
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { server } from "../../assets/components/server/server";
 
 const valuesInitial = {
@@ -30,11 +32,20 @@ const Formulario = () => {
   const handleData = (e) => {
     e.preventDefault();
     if(state.user === 'admin' && state.pass === "admin"){
-      localStorage.setItem("user", state.user);
-      localStorage.setItem("password", state.pass);
-      window.location.href = "/admin";
+      Loading.standard('Iniciando Sesion...');
+      setTimeout(()=>{
+        localStorage.setItem("user", state.user);
+        localStorage.setItem("password", state.pass);
+        Loading.remove()
+        window.location.href = "/admin";
+      }, 2000);
     }else{
-        server.loginUser(state.user, state.pass)
+        Loading.standard('Iniciando Sesion...');
+        setTimeout(()=>{
+          Loading.remove()
+          server.loginUser(state.user, state.pass)
+        
+        }, 2000);
 
     }
        
