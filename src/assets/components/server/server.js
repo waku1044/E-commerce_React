@@ -1,7 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
+import { Notify } from 'notiflix/build/notiflix-notify-aio'
 
 const loginUser =   async (usuario, password)=> {
-    
+    // https://backecommerce-a033oat25-waku1044.vercel.app/
     try {
         const response = await fetch("https://back-ecommerce-olive.vercel.app/api/login", {
             method: "POST",
@@ -12,7 +13,7 @@ const loginUser =   async (usuario, password)=> {
         });
         const data = await response.json();
         localStorage.setItem("user", data.user);
-        data.success ? window.location.href = "/home" : alert("Usuario o contraseña no registrados");
+        data.success ? window.location.href = "/home" : Notify.failure("Usuario o contraseña no registrados");
     } catch (error) {
         return console.error('Problema en la conexion', error);
     }
@@ -59,6 +60,8 @@ const agregarProducto = async (producto) => {
     console.log(data);
     
 }
+
+
 const mostrarProductos = async () => {
      const response = await fetch("https://back-ecommerce-olive.vercel.app/api/mostrarproductos");
     const data = await response.json();
