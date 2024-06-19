@@ -65,6 +65,7 @@ const agregarProducto = async (producto) => {
 const mostrarProductos = async () => {
      const response = await fetch("https://back-ecommerce-olive.vercel.app/api/mostrarproductos");
     const data = await response.json();
+    
     return data;    
 }
 
