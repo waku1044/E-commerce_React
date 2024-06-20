@@ -17,14 +17,14 @@ const Articulo = (props) => {
     >
       <div className="card " 
       style={{width: '15rem',
-      height: '27rem',
+      height: '23rem',
       }}
       
       >
         <img
           src={img}
           alt="producto"
-          style={{height:"200px"}}
+          style={{height:"10rem"}}
           className="producto card-img-top"
         />
         <div className="card-body">

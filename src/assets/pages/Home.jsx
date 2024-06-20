@@ -1,6 +1,7 @@
 import HeaderHome from "../components/HeaderHome";
 import Banner from "../components/Banner";
 import Articulo from "../components/Articulo";
+import Footer from "../components/Footer";
 import { server } from "../components/server/server";
 import { useState, useEffect } from "react";
 
@@ -19,7 +20,7 @@ useEffect(() => {
       <HeaderHome user={localStorage.getItem("user")} buscar={true}/>
       <Banner />
       <h1>Productos</h1>
-      <section className="d-flex flex-wrap  gap-3 px-4 py-4 rounded  " 
+      <section className="row d-flex justify-content-around gap-3 px-4 py-4 rounded  " 
       style={{background: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)'}}
       >
         {products.map((product, index) => (
@@ -30,12 +31,14 @@ useEffect(() => {
             titulo={product.nombre}
             precio={product.precio}
             admin={false}
+            className="col-md-4 col-lg-3 mx-auto"
             
             
           />
         ))}
         
       </section>
+          <Footer />
     </div>
   );
 };
