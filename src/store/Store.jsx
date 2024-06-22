@@ -3,10 +3,12 @@ import { create } from "zustand";
 
 
 const useStore = create(
-        (set, get)=> ({
-            user:{}
-       ,
-    registrarUser: (usuario)=>{
+    (set, get)=> ({
+        user:{}
+        ,
+        count : 0,  
+            
+        registrarUser: (usuario)=>{
         set((state)=>({
             user:{
                 ...state.user,
@@ -15,6 +17,12 @@ const useStore = create(
         }))
         console.log('llamando para registar', usuario)
 
+    },
+    countCarrito: (count)=>{
+        set((state)=>({
+            ...state,
+            count
+        }))
     },
     usuario: ()=>{
         return get().user

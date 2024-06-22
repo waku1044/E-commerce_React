@@ -1,0 +1,36 @@
+.carrito{
+    position: relative;
+}
+.count{
+    font-size: 1rem;
+    position: absolute;
+    top: -18px;
+    right: 13px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    /* padding: 1rem; */
+    
+}
+.imgCarrito{
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    top: 0;
+    bottom: 0;
+    right: 13px;    
+    margin: auto;
+    
+}
+@media screen and (min-width: 768px) {
+    .count{
+        background-color: rgb(170, 170, 170);
+        right: 45px;
+        top: 5px;
+
+    }
+}
