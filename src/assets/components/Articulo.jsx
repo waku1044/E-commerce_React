@@ -1,19 +1,26 @@
 import { Link } from "react-router-dom";
 import { server } from "../../assets/components/server/server";
-import { useState } from "react";
+import  BtnCarrito  from "../../assets/components/BtnCarrito";
+import  useStore  from "../../store/Store";
 
 const Articulo = (props) => {
+  const cont = useStore((state) => state.count);
+  const countCarrito = useStore((state) => state.countCarrito);
+  // const [count, setCount] = useState(cont);
   const { img, titulo, precio, id, admin } = props;
-  const [carrito, setCarrito] = useState(0);
-  // console.log(props)
+  
+  function agregarCarrito(e) {
+    let id = e.target.id;
+    // e.target.parentNode.parentNode.parentNode.remove();
+    // server.agregarcarrito(id);
+    countCarrito(1);
+  }
   function eliminar(e) {
     let id = e.target.id;
     e.target.parentNode.parentNode.parentNode.remove();
     server.eliminarproducto(id);
   }
-  function agregar() {
-    server.agregarcarrito(id);
-  }
+  
   return (
     <article className="text-center" id="star" style={{ maxWidth: "15rem" }}>
       <div className="card " style={{ width: "15rem", height: "23rem" }}>
@@ -36,20 +43,7 @@ const Articulo = (props) => {
               Ver producto
             </Link>
             {!admin && (
-              <button className="btn btn-success fw-bold d-flex justify-content-center align-items-center" onClick={agregar}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-cart-plus me-2"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z" />
-                  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
-                </svg>
-                <i>Agregar al Carrito</i>
-              </button>
+              <BtnCarrito msj="Añadir al carrito" onClick={agregarCarrito} />
             )}
             {props.admin && (
               <Link to={`/adminEdit/${id}`} className="btn btn-success">

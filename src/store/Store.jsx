@@ -21,7 +21,7 @@ const useStore = create(
     countCarrito: (count)=>{
         set((state)=>({
             ...state,
-            count
+            ...state + count
         }))
     },
     usuario: ()=>{
